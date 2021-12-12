@@ -1,0 +1,6 @@
+It's just a test for command RETR and STOR
+1
+2
+3
+4
+5

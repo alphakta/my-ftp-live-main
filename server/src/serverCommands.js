@@ -69,7 +69,7 @@ export function CWD(socket, args){
 export function LIST(socket){    
     fs.readdir(process.cwd(), (err,files) => {
         files.forEach(file => {
-            socket.write(file + "\r\n");
+            socket.write(file + " \n");
         })
     })
 };
@@ -111,7 +111,11 @@ export function RETR(socket, args){
 }
 
 export function STOR(socket, args){
+    let directoryCurrent = process.cwd().slice(-6);
     let dirFilesServer, dirFilesClient;
+    //console.log(directoryCurrent);
+    let file = args.toString()
+    // directoryCurrent = 'server' or 'client'
 
     if(directoryCurrent == 'server'){
         dirFilesServer = path.join(process.cwd(),'..', 'client', 'files', file)
